@@ -155,6 +155,12 @@
                     $('#data .content').hide();
                     $('#data .default').html('Select a file from the tree.').show();
                 }
+            }).on("dblclick.jstree",function(e, data){
+                var filename = e.target.parentElement.id, file = zip.file(filename);
+                if(null != file){
+                    var content = file._data;
+                    $('#data .default').html(content).show();
+                }
             });
         });
     </script>
